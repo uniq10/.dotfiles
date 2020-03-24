@@ -21,3 +21,7 @@ if _cmd_exists zsh; then
 fi
 
 "${DOTFILES_DIR}/vim/setup.sh"
+
+if _cmd_exists code; then
+    "${DOTFILES_DIR}/vscodium/setup.sh"
+fi
