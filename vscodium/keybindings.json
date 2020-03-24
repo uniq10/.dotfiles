@@ -37,6 +37,6 @@
     {
         "key": "alt+k",
         "command": "workbench.action.focusAboveGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
+        "when": "terminalFocus"
     }
 ]
