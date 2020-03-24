@@ -8,9 +8,7 @@ if _cmd_exists nvim; then
 fi
 
 # If available use vim as EDITOR.
-EDITOR_BIN=vi
-if _cmd_exists "$vim_bin"; then
-    EDITOR_BIN="$vim_bin"
+if _cmd_exists vim; then
     export EDITOR="vim"
     export VISUAL="vim"
 fi
