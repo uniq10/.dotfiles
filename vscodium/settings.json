@@ -14,7 +14,8 @@
             "before": ["b"],
             "commands": [
                 "workbench.action.quickOpen"
-            ]
+            ],
+            "after": ["<Esc>"]
         }
     ]
 }
