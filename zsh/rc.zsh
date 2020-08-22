@@ -1,4 +1,5 @@
-source "${HOME}/.dotfiles/shell_common_pre.sh"
+source "${HOME}/.dotfilesrc"
+source "${DOTFILES_DIR}/shell_common_pre.sh"
 
 # Use Vim keybindings.
 bindkey -v

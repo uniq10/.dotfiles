@@ -1,12 +1,17 @@
 #!/usr/bin/env zsh
 
-source "${HOME}/.dotfiles/functions.sh"
+echo
+echo "#############"
+echo "# zsh setup #"
+echo "#############"
+echo
 
-# Find the directory path of setup.zsh.
-SCRIPT_DIR="$( cd -- "$( dirname -- "$0" )" > /dev/null 2>&1 && pwd -P )"
+source "${HOME}/.dotfilesrc"
+source "${DOTFILES_DIR}/functions.sh"
+
+SCRIPT_DIR="${DOTFILES_DIR}/zsh"
+
 ZSHRC_PATH="${ZDOTDIR-${HOME}}/.zshrc"
-    
-echo "Setting up zsh."
 
 if [ -e "${ZSHRC_PATH}" ]; then
     echo "Backing up old ${ZSHRC_PATH}"
@@ -21,3 +26,4 @@ echo "Attempting to install zplug."
 "${SCRIPT_DIR}/zplug-installer.zsh" || true
 
 echo "zsh setup done."
+echo

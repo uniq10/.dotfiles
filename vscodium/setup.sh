@@ -3,14 +3,18 @@
 # Automatically exit if any of the subsequent commands fail.
 set -e
 
-# Find the directory path of setup.sh.
-SCRIPT_DIR="$( cd -- "$( dirname -- "$0" )" > /dev/null 2>&1 && pwd -P )"
-BACKUP_DIR="${HOME}/.dotfiles/backup"
+echo
+echo "##################"
+echo "# VSCodium Setup #"
+echo "##################"
+echo
 
-. ${HOME}/.dotfiles/functions.sh
-. ${HOME}/.dotfiles/platform/platform_pre.sh
+. "${HOME}/.dotfilesrc"
+. "${DOTFILES_DIR}/functions.sh"
+. "${DOTFILES_DIR}/platform/platform_pre.sh"
 
-echo "Setting up VSCodium."
+SCRIPT_DIR="${DOTFILES_DIR}/vscodium"
+BACKUP_DIR="${DOTFILES_DIR}/backup"
 
 SETTINGS_FILE="${VSCODIUM_CONFIG_DIR}/settings.json"
 if [ -e "${SETTINGS_FILE}" ]; then
@@ -36,3 +40,4 @@ echo "Installing extensions."
 xargs -L 1 code --install-extension < "${SCRIPT_DIR}/extensions.list"
 
 echo "VSCodium setup done."
+echo

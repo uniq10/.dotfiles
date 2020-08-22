@@ -3,13 +3,17 @@
 # Automatically exit if any of the subsequent commands fail.
 set -e
 
-# Find the directory path of setup.sh.
-SCRIPT_DIR="$( cd -- "$( dirname -- "$0" )" > /dev/null 2>&1 && pwd -P )"
-BACKUP_DIR="${HOME}/.dotfiles/backup"
+echo
+echo "##################"
+echo "# vim/nvim setup #"
+echo "##################"
+echo
 
-. ${HOME}/.dotfiles/functions.sh
+. "${HOME}/.dotfilesrc"
+. "${DOTFILES_DIR}/functions.sh"
 
-echo "Setting up vim/nvim."
+SCRIPT_DIR="${DOTFILES_DIR}/vim"
+BACKUP_DIR="${DOTFILES_DIR}/backup"
 
 # vim setup
 if [ -e "${HOME}/.vimrc" ]; then
@@ -21,19 +25,15 @@ echo "Creating symlink to ${SCRIPT_DIR}/rc.vim at ${HOME}/.vimrc"
 ln -fs -- "${SCRIPT_DIR}/rc.vim" "${HOME}/.vimrc"
 echo ".vimrc symlink created."
 
-if [ -e "${HOME}/.vim" ] && \
-   [ "$(cd -- "${HOME}/.vim" > /dev/null 2>&1 && pwd -P )" = "${SCRIPT_DIR}" ]; then
-    echo "${HOME}/.vim same as script directory."
-    echo ".vim symlink not required."
-else
-    if [ -e "${HOME}/.vim" ]; then
-        echo "Backing up ${HOME}/.vim"
-        _suffix_mv "${HOME}/.vim" "${BACKUP_DIR}"
-    fi
-    echo "Creating symlink to ${SCRIPT_DIR} at ${HOME}/.vim"
-    ln -fs -- "${SCRIPT_DIR}" "${HOME}/.vim"
-    echo ".vim symlink created."
+if [ -e "${HOME}/.vim" ]; then
+    echo "Backing up ${HOME}/.vim"
+    _suffix_mv "${HOME}/.vim" "${BACKUP_DIR}"
 fi
+
+echo "Creating symlink to ${SCRIPT_DIR} at ${HOME}/.vim"
+ln -fs -- "${SCRIPT_DIR}" "${HOME}/.vim"
+echo ".vim symlink created."
+
 
 # nvim setup
 if [ ! -z "${XDG_CONFIG_HOME}" ]; then
@@ -71,3 +71,4 @@ echo "Attempting to install plugins."
               "for manual installation."; }
 
 echo "vim/nvim setup done."
+echo

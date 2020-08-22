@@ -1,4 +1,5 @@
-. "${HOME}/.dotfiles/functions.sh"
+. "${HOME}/.dotfilesrc"
+. "${DOTFILES_DIR}/functions.sh"
 
 PATH="${HOME}/.bin"${PATH:+:${PATH}}
 
@@ -14,4 +15,4 @@ if _cmd_exists vim; then
 fi
 
 # Add platform specific configurations.
-. "${HOME}/.dotfiles/platform/platform_pre.sh"
+. "${DOTFILES_DIR}/platform/platform_pre.sh"
