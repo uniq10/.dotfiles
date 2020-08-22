@@ -5,14 +5,14 @@
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
-        "key": "shift+tab",
+        "key": "alt+tab",
         "command": "selectPrevSuggestion",
         "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
     },
     {
         "key": "alt+l",
         "command": "workbench.action.focusRightGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
+        "when": "editorFocus && vim.active && vim.mode == 'Normal'"
     },
     {
         "key": "alt+l",
@@ -22,7 +22,7 @@
     {
         "key": "alt+h",
         "command": "workbench.action.focusLeftGroup",
-        "when": "vim.active && vim.mode == 'Normal'"
+        "when": "editorFocus && vim.active && vim.mode == 'Normal'"
     },
     {
         "key": "alt+h",
@@ -32,11 +32,41 @@
     {
         "key": "alt+j",
         "command": "workbench.panel.terminal.focus",
-        "when": "vim.active && vim.mode == 'Normal'"
+        "when": "editorFocus && vim.active && vim.mode == 'Normal'"
     },
     {
         "key": "alt+k",
         "command": "workbench.action.focusAboveGroup",
         "when": "terminalFocus"
+    },
+    {
+        "key": "alt+m",
+        "command": "workbench.action.quickOpen",
+        "when": "editorFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "tab",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "!inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+tab",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "!inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+b",
+        "command": "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup",
+        "when": "editorFocus && vim.active && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+b",
+        "command": "workbench.action.quickOpenNavigateNextInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
+    },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.quickOpenNavigatePreviousInEditorPicker",
+        "when": "inEditorsPicker && inQuickOpen"
     }
 ]
