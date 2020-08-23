@@ -10,13 +10,4 @@
             "after": ["<Esc>"]
         }
     ],
-    "vim.commandLineModeKeyBindings": [
-        {
-            "before": ["b"],
-            "commands": [
-                "workbench.action.quickOpen"
-            ],
-            "after": ["<Esc>"]
-        }
-    ]
 }
