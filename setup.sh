@@ -24,3 +24,5 @@ fi
 if _cmd_exists code; then
     "${SCRIPT_DIR}/vscodium/setup.sh"
 fi
+
+"${SCRIPT_DIR}/miniconda/setup.sh" || true

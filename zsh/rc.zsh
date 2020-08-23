@@ -46,3 +46,6 @@ if (( $+commands[kubectl] )); then
 
     unset __KUBECTL_COMPLETION_FILE
 fi
+
+# Activate conda.
+. "${MINICONDA_DIR}/etc/profile.d/conda.sh"
